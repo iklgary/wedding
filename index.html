@@ -279,6 +279,16 @@ section.visible .map-button {
   }
 }
 
+@keyframes envelopeFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
 footer { padding: 1.5rem; text-align: center; opacity: 0.6; }
 
 </style>
@@ -413,9 +423,15 @@ function selectGuest(name) {
 /* ENVELOPE OVERLAY */
 document.getElementById("envelope-overlay").addEventListener("click", function() {
   const flap = document.querySelector(".flap");
+  const overlay = this;
   flap.style.animation = "flapOpen 1s ease forwards";
   setTimeout(() => {
-    this.style.display = "none";
+    overlay.style.animation = "envelopeFadeOut 0.8s ease forwards";
+    setTimeout(() => {
+      overlay.style.display = "none";
+      // Scroll to first section
+      document.querySelector("section").scrollIntoView({ behavior: "smooth" });
+    }, 800);
   }, 1000);
 });
 </script>
