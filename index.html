@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gary & Hehe – All You Need to Know</title>
+
+  <style>
+    /* ROOT COLORS */
+    :root {
+      --bg: #f4ebff; /* light purple background */
+      --accent: #c7a27c;
+      --text: #2e2e2e;
+      --soft: #ffffff;
+      --fade-duration: 1s;
+    }
+
+    /* GLOBAL STYLES */
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      scroll-behavior: smooth;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 4rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity var(--fade-duration) ease, transform var(--fade-duration) ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card {
+      max-width: 800px;
+      width: 100%;
+      background: var(--soft);
+      padding: 3rem 2rem;
+      border-radius: 24px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    }
+
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2rem; }
+    p  { font-size: 1.1rem; line-height: 1.7; }
+
+    .accent { color: var(--accent); }
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: var(--accent);
+      margin: 2rem auto;
+    }
+
+    .venue-img {
+      width: 100%;
+      max-width: 550px;
+      margin: 1.5rem auto;
+      border-radius: 16px;
+      padding: 12px;
+      background: #fff;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 16px;
+      margin-top: 1.5rem;
+    }
+
+    input {
+      padding: 0.8rem 1rem;
+      width: 80%;
+      max-width: 300px;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 0.7rem 1.5rem;
+      border-radius: 12px;
+      border: none;
+      background: var(--accent);
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    #suggestions {
+      max-width: 300px;
+      margin: 0.5rem auto 0;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+      overflow: hidden;
+      text-align: left;
+    }
+
+    .suggestion {
+      padding: 0.7rem 1rem;
+      cursor: pointer;
+    }
+
+    .suggestion:hover {
+      background: #faf7f4;
+    }
+
+    .result {
+      margin-top: 1.5rem;
+      padding: 1.5rem;
+      border-radius: 12px;
+      background: #faf7f4;
+      text-align: left;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .table-badge {
+        background: var(--accent);
+        color: white;
+        padding: 0.6rem 1.5rem;
+        border-radius: 999px;
+        display: block;           /* change from inline-block */
+        font-weight: bold;
+        margin: 0 auto 1rem auto; /* center horizontally with auto margins */
+        text-align: center;
+        max-width: 150px;         /* optional: control width */
+    }
+
+    .menu h3 {
+      margin: 0.5rem 0 1rem;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.6rem 0;
+      border-bottom: 1px dashed #ddd;
+      font-size: 1rem;
+    }
+
+    .menu-item:last-child { border-bottom: none; }
+    .menu-item span:first-child { font-weight: bold; }
+
+    footer {
+      padding: 2rem;
+      text-align: center;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- COVER -->
+<section>
+  <div class="card">
+    <p class="accent">All You Need to Know</p>
+    <h1>Gary & Hehe</h1>
+    <div class="divider"></div>
+    <p><strong>Friday, 3rd July 2026</strong></p>
+    <p>Scroll for details ↓</p>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section>
+  <div class="card">
+    <h2>Location</h2>
+    <div class="divider"></div>
+    <p><strong>Friern Manor House</strong><br>Friern Barnet Road, London</p>
+    <img class="venue-img" src="images/friern-manor-cartoon.png" alt="Friern Manor House illustration">
+    <iframe src="https://www.google.com/maps?q=Friern%20Manor%20House&output=embed"></iframe>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section>
+  <div class="card">
+    <h2>Wedding Schedule</h2>
+    <div class="divider"></div>
+    <p>13:00 – Arrival</p>
+    <p>14:00 – Wedding Ceremony</p>
+    <p>16:00 – Wedding Breakfast</p>
+    <p>20:00 – Evening Party</p>
+    <div class="divider"></div>
+    <p class="accent"><strong>Dress Code:</strong> Pastel Shades</p>
+  </div>
+</section>
+
+<!-- TABLE + MEAL -->
+<section>
+  <div class="card">
+    <h2>Find Your Table</h2>
+    <div class="divider"></div>
+    <input
+      type="text"
+      id="guestName"
+      placeholder="Start typing your name..."
+      oninput="showSuggestions()"
+    >
+    <div id="suggestions"></div>
+    <div class="result" id="result"></div>
+  </div>
+</section>
+
+<footer>With love, Gary & Hehe</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+const guests = {
+  "Sarah Williams": { table: "5", starter: "Smoked Salmon", main: "Roast Chicken", dessert: "Chocolate Delice" },
+  "James Patel": { table: "2", starter: "Halloumi Salad", main: "Vegetarian Wellington", dessert: "Lemon Tart" },
+  "Emma Brown": { table: "8", starter: "Beetroot Carpaccio", main: "Vegan Risotto", dessert: "Fruit Pavlova" }
+};
+const names = Object.keys(guests);
+
+/* AUTOCOMPLETE */
+function showSuggestions() {
+  const input = document.getElementById("guestName").value.toLowerCase();
+  const box = document.getElementById("suggestions");
+  box.innerHTML = "";
+  if (!input) return;
+
+  names.filter(n => n.toLowerCase().includes(input)).forEach(name => {
+    const div = document.createElement("div");
+    div.className = "suggestion";
+    div.textContent = name;
+    div.onclick = () => selectGuest(name);
+    box.appendChild(div);
+  });
+}
+
+/* SELECT GUEST */
+function selectGuest(name) {
+  document.getElementById("guestName").value = name;
+  document.getElementById("suggestions").innerHTML = "";
+
+  const g = guests[name];
+  document.getElementById("result").innerHTML = `
+    <div class="table-badge">🪑 Table ${g.table}</div>
+    <div class="menu">
+      <h3>🍽 Your Menu</h3>
+      <div class="menu-item"><span>Starter</span><span>${g.starter}</span></div>
+      <div class="menu-item"><span>Main</span><span>${g.main}</span></div>
+      <div class="menu-item"><span>Dessert</span><span>${g.dessert}</span></div>
+    </div>
+  `;
+}
+
+/* SCROLL FADE ANIMATION */
+const sections = document.querySelectorAll("section");
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) entry.target.classList.add("visible");
+  });
+}, { threshold: 0.1 });
+
+sections.forEach(sec => observer.observe(sec));
+</script>
+
+</body>
+</html>
