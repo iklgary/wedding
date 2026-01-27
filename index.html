@@ -10,6 +10,14 @@
   --accent: #c7a27c;
   --text: #2e2e2e;
   --soft: #ffffff;
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --shadow-sm: 0 8px 20px rgba(0,0,0,0.08);
+  --shadow-md: 0 10px 25px rgba(0,0,0,0.12);
+  --shadow-lg: 0 20px 40px rgba(0,0,0,0.08);
+  --fade-duration: 1s;
+  --fade-delay: 0.2s;
 }
 
 * { box-sizing: border-box; }
@@ -29,8 +37,8 @@ section {
   text-align: center;
   opacity: 0;
   transform: translateY(50px);
-  transition: opacity 1s ease, transform 1s ease;
-  transition-delay: 0.2s; /* adds a subtle stagger */
+  transition: opacity var(--fade-duration) ease, transform var(--fade-duration) ease;
+  transition-delay: var(--fade-delay);
 }
 
 section.visible {
@@ -44,8 +52,8 @@ section.visible {
   width: 100%;
   background: rgba(255,255,255,0.95);
   padding: 2rem 1.5rem;
-  border-radius: 24px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
   margin-bottom: 2rem;
 }
 
@@ -81,14 +89,18 @@ p { font-size: 1.1rem; line-height: 1.7; margin: 0.5rem 0; }
   width: 100%;
   max-width: 350px;
   margin: 1rem 0 1.5rem 0;
-  border-radius: 16px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
   display: block;
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
+  transition: opacity var(--fade-duration) ease 0.3s, transform var(--fade-duration) ease 0.3s;
 }
-section.visible .cover-img { opacity: 1; transform: translateY(0); }
+
+section.visible .cover-img {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 .date-text {
   font-size: 1.2rem;
@@ -106,29 +118,32 @@ section.visible .cover-img { opacity: 1; transform: translateY(0); }
   width: 100%;
   max-width: 550px;
   margin: 1rem auto;
-  border-radius: 16px;
+  border-radius: var(--radius-md);
   padding: 12px;
   background: #fff;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  box-shadow: var(--shadow-md);
   display: block;
 }
 
 /* INPUT & AUTOCOMPLETE */
+input,
+#suggestions {
+  max-width: 300px;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+}
+
 input {
   padding: 0.8rem 1rem;
   width: 80%;
-  max-width: 300px;
-  border-radius: 12px;
   border: 1px solid #ccc;
   font-size: 1rem;
   margin-bottom: 0.5rem;
 }
+
 #suggestions {
-  max-width: 300px;
   margin: 0.5rem auto 0;
   background: white;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
   overflow: hidden;
   text-align: left;
 }
@@ -136,15 +151,13 @@ input {
 .suggestion:hover { background: #faf7f4; }
 
 .result {
-  margin-top: 1rem;
+  margin: 1rem auto 0;
   padding: 1.5rem;
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   background: #faf7f4;
   text-align: left;
   max-width: 420px;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  box-shadow: var(--shadow-sm);
 }
 
 .table-badge {
@@ -171,9 +184,9 @@ input {
   margin-top: 1rem;
   padding: 0.7rem 1.5rem;
   background: white;
-  color: var(--accent); /* gold/beige accent */
+  color: var(--accent);
   font-weight: bold;
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   border: 2px solid var(--accent);
   text-decoration: none;
   font-size: 1rem;
@@ -182,7 +195,6 @@ input {
   transform: translateY(20px);
 }
 
-/* Fade in when section is visible */
 section.visible .map-button {
   opacity: 1;
   transform: translateY(0);
@@ -194,10 +206,27 @@ section.visible .map-button {
   transform: translateY(-2px);
 }
 
-.menu h3 { margin: 0.5rem 0 1rem; font-size: 1.2rem; text-align: center; }
-.menu-item { display: flex; justify-content: space-between; padding: 0.4rem 0; border-bottom: 1px dashed #ddd; font-size: 1rem; }
-.menu-item:last-child { border-bottom: none; }
-.menu-item span:first-child { font-weight: bold; }
+.menu h3 {
+  margin: 0.5rem 0 1rem;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed #ddd;
+  font-size: 1rem;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-item span:first-child {
+  font-weight: bold;
+}
 
 footer { padding: 1.5rem; text-align: center; opacity: 0.6; }
 
@@ -212,7 +241,7 @@ footer { padding: 1.5rem; text-align: center; opacity: 0.6; }
     <p class="accent small-text">Welcome To</p>
     <h2>The Wedding of Gary & Hehe</h2>
     <div class="divider"></div>
-    <img class="cover-img" src="cover-image.png" alt="Gary & Hehe">
+    <img class="cover-img fade-in" src="cover-image.png" alt="Gary & Hehe">
     <p class="date-text"><strong>Friday, 3rd July 2026</strong></p>
     <p class="scroll-text">Scroll for details ↓</p>
   </div>
@@ -226,9 +255,8 @@ footer { padding: 1.5rem; text-align: center; opacity: 0.6; }
     <p><strong>Friern Manor House</strong><br>Lower Dunton Road, Brentwood, CM13 3SL</p>
     <img class="venue-img" src="image.png" alt="Friern Manor House illustration">
     
-    <!-- Google Maps Button -->
     <a href="https://www.google.com/maps/place/Friern+Manor+Country+Hotel/@51.577921,0.3868512,17z/data=!3m1!4b1!4m9!3m8!1s0x47d8c742ad036a0b:0x4397ed2fbc1a2a2f!5m2!4m1!1i2!8m2!3d51.5779177!4d0.3894261!16s%2Fg%2F11b7h58__s?entry=ttu&g_ep=EgoyMDI2MDEyNS4wIKXMDSoASAFQAw%3D%3D" 
-       target="_blank" class="map-button">
+       target="_blank" class="map-button fade-in">
       📍 View on Google Maps
     </a>
   </div>
@@ -239,10 +267,12 @@ footer { padding: 1.5rem; text-align: center; opacity: 0.6; }
   <div class="card">
     <h2>Wedding Schedule</h2>
     <div class="divider"></div>
-    <p>13:00 – Arrival</p>
-    <p>14:00 – Wedding Ceremony</p>
-    <p>16:00 – Wedding Breakfast</p>
-    <p>20:00 – Evening Party</p>
+    <p>⏰ 13:00 – Arrival</p>
+    <p>💍 14:00 – Wedding Ceremony</p>
+    <p>🥂 14:30 – Reception Drinks</p>
+    <p>🍴 16:00 – Wedding Breakfast</p>
+    <p>🎉 19:30 – Evening Party</p>
+    <p>🕺 19:30 – First Dance</p>
     <div class="divider"></div>
     <p class="accent"><strong>Dress Code:</strong> Pastel Shades</p>
   </div>
@@ -256,7 +286,7 @@ footer { padding: 1.5rem; text-align: center; opacity: 0.6; }
     <p class="instructions">
       Please start typing your name below to find your table number and your choice of menu.
     </p>
-    <input type="text" id="guestName" placeholder="Start typing your name..." oninput="showSuggestions()">
+    <input type="text" id="guestName" placeholder="Start typing your name...">
     <div id="suggestions"></div>
     <div class="result" id="result"></div>
   </div>
@@ -267,11 +297,11 @@ footer { padding: 1.5rem; text-align: center; opacity: 0.6; }
 <script>
 /* FADE ON SCROLL */
 const sections = document.querySelectorAll("section");
-const observer = new IntersectionObserver((entries, obs) => {
+const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if(entry.isIntersecting){
+    if (entry.isIntersecting) {
       entry.target.classList.add("visible");
-      obs.unobserve(entry.target);
+      observer.unobserve(entry.target);
     }
   });
 }, { threshold: 0.1 });
@@ -290,7 +320,8 @@ function showSuggestions() {
   const input = document.getElementById("guestName").value.toLowerCase();
   const box = document.getElementById("suggestions");
   box.innerHTML = "";
-  if(!input) return;
+  if (!input) return;
+  
   names.filter(n => n.toLowerCase().includes(input)).forEach(name => {
     const div = document.createElement("div");
     div.className = "suggestion";
@@ -315,6 +346,9 @@ function selectGuest(name) {
     </div>
   `;
 }
+
+/* EVENT LISTENER */
+document.getElementById("guestName").addEventListener("input", showSuggestions);
 </script>
 
 </body>
