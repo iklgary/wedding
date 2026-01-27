@@ -13,25 +13,29 @@
 }
 
 * { box-sizing: border-box; }
-body {
+
+html, body {
   margin: 0;
+  height: 100%;
   font-family: Georgia, serif;
   color: var(--text);
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
   background: linear-gradient(180deg, #f4ebff 0%, #e9e0ff 50%, #f4ebff 100%);
 }
 
 /* SECTIONS */
 section {
+  min-height: 70vh;           /* smaller than 100vh for mobile */
   padding: 2rem 1.5rem;
   display: flex;
   justify-content: center;
+  align-items: center;        /* vertical centering */
   text-align: center;
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 1s ease, transform 1s ease;
 }
-
 section.visible {
   opacity: 1;
   transform: translateY(0);
@@ -48,6 +52,7 @@ section.visible {
   margin-bottom: 2rem;
 }
 
+/* TEXT */
 h1 { font-size: 3rem; margin: 0.5rem 0; }
 h2 { font-size: 2rem; margin: 0; }
 p { font-size: 1.1rem; line-height: 1.7; margin: 0.5rem 0; }
@@ -122,6 +127,12 @@ input {
   font-size: 1rem;
   margin-bottom: 0.5rem;
 }
+.instructions {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
 #suggestions {
   max-width: 300px;
   margin: 0.5rem auto 0;
@@ -158,20 +169,12 @@ input {
   max-width: 150px;
 }
 
-.instructions {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 1rem;
-  line-height: 1.4;
-}
-
 .menu h3 { margin: 0.5rem 0 1rem; font-size: 1.2rem; text-align: center; }
 .menu-item { display: flex; justify-content: space-between; padding: 0.4rem 0; border-bottom: 1px dashed #ddd; font-size: 1rem; }
 .menu-item:last-child { border-bottom: none; }
 .menu-item span:first-child { font-weight: bold; }
 
 footer { padding: 1.5rem; text-align: center; opacity: 0.6; }
-
 </style>
 </head>
 
@@ -181,7 +184,7 @@ footer { padding: 1.5rem; text-align: center; opacity: 0.6; }
 <section>
   <div class="card cover-card">
     <p class="accent small-text">All You Need to Know</p>
-    <h2>The Wedding of Gary & Hehe</h2>
+    <h1>The Wedding of Gary & Hehe</h1>
     <div class="divider"></div>
     <img class="cover-img" src="cover-image.png" alt="Gary & Hehe">
     <p class="date-text"><strong>Friday, 3rd July 2026</strong></p>
@@ -230,7 +233,7 @@ footer { padding: 1.5rem; text-align: center; opacity: 0.6; }
 <footer>With love, Gary & Hehe</footer>
 
 <script>
-/* FADE ON SCROLL */
+/* FADE ON SCROLL (mobile-friendly) */
 const sections = document.querySelectorAll("section");
 const observer = new IntersectionObserver((entries, obs) => {
   entries.forEach(entry => {
@@ -239,7 +242,7 @@ const observer = new IntersectionObserver((entries, obs) => {
       obs.unobserve(entry.target);
     }
   });
-}, { threshold: 0.2 });
+}, { threshold: 0.1 });  // lower threshold for mobile
 sections.forEach(section => observer.observe(section));
 
 /* GUEST DATA */
