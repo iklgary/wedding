@@ -26,7 +26,6 @@ html, body {
 
 /* SECTIONS */
 section {
-  min-height: 70vh;           /* smaller than 100vh for mobile */
   padding: 2rem 1.5rem;
   display: flex;
   justify-content: center;
@@ -235,14 +234,17 @@ footer { padding: 1.5rem; text-align: center; opacity: 0.6; }
 <script>
 /* FADE ON SCROLL (mobile-friendly) */
 const sections = document.querySelectorAll("section");
-const observer = new IntersectionObserver((entries, obs) => {
+
+const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if(entry.isIntersecting){
-      entry.target.classList.add("visible");
-      obs.unobserve(entry.target);
+      entry.target.classList.add("visible"); // fade in
+    } else {
+      entry.target.classList.remove("visible"); // fade out when leaving
     }
   });
-}, { threshold: 0.1 });  // lower threshold for mobile
+}, { threshold: 0.1 });
+
 sections.forEach(section => observer.observe(section));
 
 /* GUEST DATA */
