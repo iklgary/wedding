@@ -199,115 +199,12 @@ section.visible .map-button {
 .menu-item:last-child { border-bottom: none; }
 .menu-item span:first-child { font-weight: bold; }
 
-/* ENVELOPE OVERLAY */
-#envelope-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--soft);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  cursor: pointer;
-}
-
-.envelope {
-  position: relative;
-  width: 350px;
-  height: 240px;
-  perspective: 1200px;
-}
-
-/* Envelope body/letter */
-.letter {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #faf8ff;
-  border: 3px solid #d4c4e8;
-  border-top: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  text-align: center;
-  padding: 3rem 2rem 2rem 2rem;
-  box-sizing: border-box;
-  z-index: 1;
-  box-shadow: 0 8px 24px rgba(180, 150, 220, 0.2);
-}
-
-.letter p { 
-  margin: 0.2rem 0;
-  font-size: 0.95rem;
-}
-
-.letter h1 { 
-  margin: 0.5rem 0;
-  font-size: 1.8rem;
-}
-
-.letter .divider {
-  width: 50px;
-  height: 2px;
-  margin: 0.8rem auto;
-}
-
-/* Envelope flap */
-.flap {
-  position: absolute;
-  width: 100%;
-  height: 0;
-  border-left: 175px solid transparent;
-  border-right: 175px solid transparent;
-  border-top: 120px solid #d4c4e8;
-  top: -3px;
-  left: 0;
-  z-index: 2;
-  transform-origin: top center;
-  transform-style: preserve-3d;
-  box-shadow: inset -2px -2px 6px rgba(100, 80, 140, 0.1);
-}
-
-@keyframes flapOpen {
-  from {
-    transform: rotateX(0deg);
-  }
-  to {
-    transform: rotateX(-170deg);
-  }
-}
-
-@keyframes envelopeFadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-
 footer { padding: 1.5rem; text-align: center; opacity: 0.6; }
 
 </style>
 </head>
 
 <body>
-
-<!-- Envelope Overlay -->
-<div id="envelope-overlay">
-  <div class="envelope">
-    <div class="flap"></div>
-    <div class="letter">
-      <div class="divider"></div>
-      <p>Tap to begin our journey</p>
-    </div>
-  </div>
-</div>
 
 <!-- COVER -->
 <section>
@@ -421,20 +318,6 @@ function selectGuest(name) {
   `;
 }
 
-/* ENVELOPE OVERLAY */
-document.getElementById("envelope-overlay").addEventListener("click", function() {
-  const flap = document.querySelector(".flap");
-  const overlay = this;
-  flap.style.animation = "flapOpen 1s ease forwards";
-  setTimeout(() => {
-    overlay.style.animation = "envelopeFadeOut 0.8s ease forwards";
-    setTimeout(() => {
-      overlay.style.display = "none";
-      // Scroll to first section
-      document.querySelector("section").scrollIntoView({ behavior: "smooth" });
-    }, 800);
-  }, 1000);
-});
 </script>
 
 </body>
