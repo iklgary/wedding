@@ -226,8 +226,8 @@ section.visible .map-button {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: #f9f6f1;
-  border: 3px solid var(--accent);
+  background: #faf8ff;
+  border: 3px solid #d4c4e8;
   border-top: none;
   display: flex;
   flex-direction: column;
@@ -237,6 +237,7 @@ section.visible .map-button {
   padding: 3rem 2rem 2rem 2rem;
   box-sizing: border-box;
   z-index: 1;
+  box-shadow: 0 8px 24px rgba(180, 150, 220, 0.2);
 }
 
 .letter p { 
@@ -262,12 +263,13 @@ section.visible .map-button {
   height: 0;
   border-left: 175px solid transparent;
   border-right: 175px solid transparent;
-  border-top: 120px solid var(--accent);
+  border-top: 120px solid #d4c4e8;
   top: -3px;
   left: 0;
   z-index: 2;
   transform-origin: top center;
   transform-style: preserve-3d;
+  box-shadow: inset -2px -2px 6px rgba(100, 80, 140, 0.1);
 }
 
 @keyframes flapOpen {
@@ -301,9 +303,8 @@ footer { padding: 1.5rem; text-align: center; opacity: 0.6; }
   <div class="envelope">
     <div class="flap"></div>
     <div class="letter">
-      <p class="accent">You're Invited</p>
       <div class="divider"></div>
-      <p>Tap anywhere to open</p>
+      <p>Tap to begin our journey</p>
     </div>
   </div>
 </div>
