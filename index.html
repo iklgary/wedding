@@ -195,9 +195,10 @@ section.visible .map-button {
 }
 
 .menu h3 { margin: 0.5rem 0 1rem; font-size: 1.2rem; text-align: center; }
-.menu-item { display: flex; justify-content: space-between; padding: 0.4rem 0; border-bottom: 1px dashed #ddd; font-size: 1rem; }
+.menu-item { display: flex; justify-content: center; flex-direction: column; align-items: center; padding: 0.4rem 0; border-bottom: 1px dashed #ddd; font-size: 1rem; gap: 0.5rem; }
 .menu-item:last-child { border-bottom: none; }
 .menu-item span:first-child { font-weight: bold; }
+.menu-item span:last-child { flex: 1; text-align: right; word-break: break-word; }
 
 footer { padding: 1.5rem; text-align: center; opacity: 0.6; }
 
@@ -243,8 +244,8 @@ footer { padding: 1.5rem; text-align: center; opacity: 0.6; }
     <p>💍 14:00 – Wedding Ceremony</p>
     <p>🥂 14:30 – Reception Drinks</p>
     <p>🍴 16:00 – Wedding Breakfast</p>
-    <p>🎉 19:30 – Evening Party</p>
-    <p>🕺 20:00 – First Dance</p>
+    <p>🎉 19:00 – Evening Party</p>
+    <p>🕺 19:30 – First Dance</p>
     <div class="divider"></div>
     <p class="accent"><strong>Dress Code:</strong> Pastel Shades</p>
   </div>
@@ -261,6 +262,23 @@ footer { padding: 1.5rem; text-align: center; opacity: 0.6; }
     <input type="text" id="guestName" placeholder="Start typing your name..." oninput="showSuggestions()">
     <div id="suggestions"></div>
     <div class="result" id="result"></div>
+  </div>
+</section>
+
+<!-- PHOTO ALBUM -->
+<section>
+  <div class="card">
+    <h2>Share Your Photos</h2>
+    <div class="divider"></div>
+    <p>Capture and share your favorite moments from the day!</p>
+    <a href="https://photos.app.goo.gl/DR78S6FTaCmAdQby6" 
+       target="_blank" class="map-button">
+      📸 View & Add Photos to Album
+    </a>
+    <p style="font-size: 0.9rem; margin-top: 1rem; color: #777;">
+      Feel free to upload your candid shots and memories<br>
+      <em>(A Google account is required to upload photos)</em>
+    </p>
   </div>
 </section>
 
@@ -281,9 +299,24 @@ sections.forEach(section => observer.observe(section));
 
 /* GUEST DATA */
 const guests = {
-  "Sarah Williams": { table: "5", starter: "Smoked Salmon", main: "Roast Chicken", dessert: "Chocolate Delice" },
-  "James Patel": { table: "2", starter: "Halloumi Salad", main: "Vegetarian Wellington", dessert: "Lemon Tart" },
-  "Emma Brown": { table: "8", starter: "Beetroot Carpaccio", main: "Vegan Risotto", dessert: "Fruit Pavlova" }
+  "Gary Lai": { table: "Top", starter: "Leek and Potato Soup & Prawn Cocktail", main: "Beef Wellington", dessert: "Belgian Chocolate Brownie with Vanilla Ice Cream" },
+  "He He": { table: "Top", starter: "Leek and Potato Soup & Prawn Cocktail", main: "Beef Wellington", dessert: "Belgian Chocolate Brownie with Vanilla Ice Cream" },
+  "Wai Ling Ng": { table: "Top", starter: "Leek and Potato Soup & Prawn Cocktail", main: "Beef Wellington", dessert: "Belgian Chocolate Brownie with Vanilla Ice Cream" },
+  "Michael Lai": { table: "Top", starter: "Leek and Potato Soup & Prawn Cocktail", main: "Beef Wellington", dessert: "Belgian Chocolate Brownie with Vanilla Ice Cream" },
+  "Calvin Lai": { table: "Top", starter: "Leek and Potato Soup & Prawn Cocktail", main: "Beef Wellington", dessert: "Belgian Chocolate Brownie with Vanilla Ice Cream" },
+  "Angel Tze": { table: "Top", starter: "Leek and Potato Soup & Prawn Cocktail", main: "Beef Wellington", dessert: "Belgian Chocolate Brownie with Vanilla Ice Cream" },
+  "Ping Fan": { table: "Top", starter: "Leek and Potato Soup & Prawn Cocktail", main: "Beef Wellington", dessert: "Belgian Chocolate Brownie with Vanilla Ice Cream" },
+  "Xiaogang He": { table: "Top", starter: "Leek and Potato Soup & Prawn Cocktail", main: "Beef Wellington", dessert: "Belgian Chocolate Brownie with Vanilla Ice Cream" },
+  "Agnes He": { table: "Top", starter: "Leek and Potato Soup & Prawn Cocktail", main: "Beef Wellington", dessert: "Belgian Chocolate Brownie with Vanilla Ice Cream" },
+  "Song Liangjun": { table: "5", starter: "Leek and Potato Soup & Prawn Cocktail", main: "Beef Wellington", dessert: "Belgian Chocolate Brownie with Vanilla Ice Cream" },
+  "Victoria Lyu": { table: "5", starter: "Leek and Potato Soup & Prawn Cocktail", main: "Beef Wellington", dessert: "Belgian Chocolate Brownie with Vanilla Ice Cream" },
+  "Jacky Lyu": { table: "5", starter: "Leek and Potato Soup & Prawn Cocktail", main: "Beef Wellington", dessert: "Belgian Chocolate Brownie with Vanilla Ice Cream" },
+  "Zhunxun Wang": { table: "5", starter: "Leek and Potato Soup & Prawn Cocktail", main: "Beef Wellington", dessert: "Belgian Chocolate Brownie with Vanilla Ice Cream" },
+  "Shuliang Li": { table: "5", starter: "Leek and Potato Soup & Prawn Cocktail", main: "Beef Wellington", dessert: "Belgian Chocolate Brownie with Vanilla Ice Cream" },
+  "Long Ying Wong": { table: "5", starter: "Leek and Potato Soup & Prawn Cocktail", main: "Beef Wellington", dessert: "Belgian Chocolate Brownie with Vanilla Ice Cream" },
+  "Fiona Li": { table: "5", starter: "Leek and Potato Soup & Prawn Cocktail", main: "Beef Wellington", dessert: "Belgian Chocolate Brownie with Vanilla Ice Cream" },
+  "Chan Sze Man": { table: "5", starter: "Leek and Potato Soup & Prawn Cocktail", main: "Beef Wellington", dessert: "Belgian Chocolate Brownie with Vanilla Ice Cream" },
+  "Sonia Sung": { table: "5", starter: "Leek and Potato Soup & Prawn Cocktail", main: "Beef Wellington", dessert: "Belgian Chocolate Brownie with Vanilla Ice Cream" }
 };
 const names = Object.keys(guests);
 
