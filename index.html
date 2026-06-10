@@ -195,10 +195,132 @@ section.visible .map-button {
 }
 
 .menu h3 { margin: 0.5rem 0 1rem; font-size: 1.2rem; text-align: center; }
+.menu { text-align: center; }
 .menu-item { display: flex; justify-content: center; flex-direction: column; align-items: center; padding: 0.4rem 0; border-bottom: 1px dashed #ddd; font-size: 1rem; gap: 0.5rem; }
 .menu-item:last-child { border-bottom: none; }
 .menu-item span:first-child { font-weight: bold; }
-.menu-item span:last-child { flex: 1; text-align: right; word-break: break-word; }
+.menu-item span:last-child { flex: 1; text-align: center; word-break: break-word; }
+
+/* ACCOMMODATION & TAXI CARDS */
+.info-card {
+  background: #faf7f4;
+  padding: 1.5rem;
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid var(--accent);
+}
+
+.info-card h3 {
+  font-size: 1.3rem;
+  margin: 0 0 0.5rem 0;
+  color: var(--text);
+}
+
+.info-card p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.hotel-item {
+  margin-bottom: 1.2rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+.hotel-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.hotel-name {
+  font-weight: bold;
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.hotel-phone {
+  font-size: 1rem;
+}
+
+.hotel-phone a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.hotel-phone a:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+.concierge-note {
+  background: rgba(199, 162, 124, 0.08);
+  padding: 1.2rem;
+  border-radius: 12px;
+  margin-top: 1.2rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text);
+  border-left: 4px solid var(--accent);
+}
+
+/* BAR MENU STYLES */
+.bar-menu-intro {
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  color: #555;
+}
+
+.menu-category {
+  margin-bottom: 1.8rem;
+}
+
+.menu-category h3 {
+  font-size: 1.2rem;
+  color: var(--accent);
+  margin: 0 0 1rem 0;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.5rem;
+  text-align: left;
+}
+
+.menu-category ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.4rem;
+}
+
+.menu-category li {
+  padding: 0.5rem 0;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.menu-category li::before {
+  content: "• ";
+  color: var(--accent);
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.bar-note {
+  background: rgba(199, 162, 124, 0.08);
+  padding: 1rem;
+  border-radius: 12px;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--text);
+  text-align: center;
+  border: 1px solid rgba(199, 162, 124, 0.2);
+}
 
 footer { padding: 1.5rem; text-align: center; opacity: 0.6; }
 
@@ -242,10 +364,12 @@ footer { padding: 1.5rem; text-align: center; opacity: 0.6; }
     <div class="divider"></div>
     <p>⏰ 13:00 – Arrival</p>
     <p>💍 14:00 – Wedding Ceremony</p>
-    <p>🥂 14:30 – Reception Drinks</p>
+    <p>🥂 14:30 – Reception Drinks / Group Photos</p>
     <p>🍴 16:00 – Wedding Breakfast</p>
     <p>🎉 19:00 – Evening Party</p>
-    <p>🕺 19:30 – First Dance</p>
+    <p>🕺 20:00 – First Dance</p>
+    <p>🍴 20:30 – Evening Food</p>
+    <p>🛏️ 23:30 – Conclusion</p>
     <div class="divider"></div>
     <p class="accent"><strong>Dress Code:</strong> Pastel Shades</p>
   </div>
@@ -279,6 +403,181 @@ footer { padding: 1.5rem; text-align: center; opacity: 0.6; }
       Feel free to upload your candid shots and memories<br>
       <em>(A Google account is required to upload photos)</em>
     </p>
+  </div>
+</section>
+
+<!-- USEFUL INFO -->
+<section>
+  <div class="card">
+    <h2>Useful Info</h2>
+    <div class="divider"></div>
+    
+    <!-- LOCAL ACCOMMODATION -->
+    <div class="info-card">
+      <h3>Local Accommodation</h3>
+      <div class="hotel-item">
+        <div class="hotel-name">Holiday Inn Basildon</div>
+        <div class="hotel-phone">Phone: <a href="tel:+441371942903">0371 942 9003</a></div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name">The Bell Inn, Horndon on the Hill</div>
+        <div class="hotel-phone">Phone: <a href="tel:+441375642436">01375 642436</a></div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name">Travelodge East Horndon</div>
+        <div class="hotel-phone">Phone: <a href="tel:+441871198460126">0871 1984 6016</a></div>
+      </div>
+    </div>
+
+    <!-- LOCAL TAXI SERVICE -->
+    <div class="info-card">
+      <h3>Local Taxi Service</h3>
+      <div style="text-align: center;">
+        <div class="hotel-name">Value Cars</div>
+        <div class="hotel-phone">Phone: <a href="tel:+441268525252">01268 525252</a></div>
+      </div>
+      <div class="concierge-note">
+        <strong>Hotel Concierge Support:</strong> Hotel concierge will be available throughout the evening to assist guests with taxi transportation. Where possible, they can arrange a priority registered taxi service to help reduce long delays. Guests who require transport are encouraged to give concierge as much notice as possible so their taxi can be ready for their homeward journey.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BAR MENU -->
+<section>
+  <div class="card">
+    <h2>Bar Menu</h2>
+    <div class="divider"></div>
+    
+    <p class="bar-menu-intro">A selection of drinks will be available from the bar throughout the evening.</p>
+
+    <!-- DRAUGHT -->
+    <div class="menu-category">
+      <h3>Draught</h3>
+      <ul>
+        <li>Birra Moretti</li>
+        <li>Cruzcampo</li>
+        <li>Foster's</li>
+      </ul>
+    </div>
+
+    <!-- BOTTLES & CANS -->
+    <div class="menu-category">
+      <h3>Bottles & Cans</h3>
+      <ul>
+        <li>Peroni</li>
+        <li>Corona</li>
+        <li>Inch's Apple Cider</li>
+        <li>Old Mout Cider — Berries & Cherries / Kiwi & Lime</li>
+        <li>Beavertown Neck Oil IPA</li>
+        <li>Guinness</li>
+        <li>Sharp's Doom Bar</li>
+      </ul>
+    </div>
+
+    <!-- NON-ALCOHOLIC BEER -->
+    <div class="menu-category">
+      <h3>Non-Alcoholic</h3>
+      <ul>
+        <li>Birra Moretti Zero</li>
+      </ul>
+    </div>
+
+    <!-- SOFT DRINKS -->
+    <div class="menu-category">
+      <h3>Soft Drinks</h3>
+      <ul>
+        <li>Coca Cola Classic</li>
+        <li>Diet Coke</li>
+        <li>Folkington's Fruit Juice — Orange / Apple / Pineapple / Cranberry</li>
+        <li>Sanpellegrino — Orange / Lemon</li>
+        <li>Post Mix Drinks</li>
+        <li>J2O — Orange & Passionfruit / Apple & Mango</li>
+        <li>Fruit Shoot — Orange / Blackcurrant</li>
+      </ul>
+    </div>
+
+    <!-- WINE SELECTION -->
+    <div class="menu-category">
+      <h3>Wine Selection</h3>
+      <div style="margin-bottom: 1rem;">
+        <strong style="color: var(--text); display: block; margin-bottom: 0.5rem;">House Wines:</strong>
+        <ul>
+          <li>Corte Vigna Chardonnay</li>
+          <li>Corte Vigna Pinot Grigio Rosé</li>
+          <li>Corte Vigna Merlot</li>
+        </ul>
+      </div>
+      <div style="margin-bottom: 1rem;">
+        <strong style="color: var(--text); display: block; margin-bottom: 0.5rem;">Director's Collection:</strong>
+        <ul>
+          <li>Vidal Sauvignon Blanc</li>
+          <li>Mirabeau Belle Année Rosé</li>
+          <li>Los Romeros Malbec</li>
+        </ul>
+      </div>
+      <div>
+        <strong style="color: var(--text); display: block; margin-bottom: 0.5rem;">Prosecco:</strong>
+        <ul>
+          <li>Glass of Prosecco White</li>
+          <li>Glass of Prosecco Rosé</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TEA & COFFEE -->
+    <div class="menu-category">
+      <h3>Tea & Coffee</h3>
+      <ul>
+        <li>Illy Cafetière Coffee</li>
+        <li>Fortnum & Mason Tea</li>
+      </ul>
+    </div>
+
+    <!-- SPIRITS & LIQUEURS -->
+    <div class="menu-category">
+      <h3>Spirits & Liqueurs</h3>
+      <ul>
+        <li>Bacardi</li>
+        <li>Captain Morgan — Dark / Spiced</li>
+        <li>Malibu</li>
+        <li>Gordon's London Dry Gin</li>
+        <li>Gordon's Pink Gin</li>
+        <li>Smirnoff Red Label</li>
+        <li>Disaronno</li>
+        <li>Archers</li>
+        <li>Southern Comfort</li>
+        <li>Jack Daniel's</li>
+        <li>Jameson Irish Whiskey</li>
+        <li>Courvoisier</li>
+        <li>Johnnie Walker Red Label</li>
+        <li>Baileys</li>
+        <li>Tia Maria</li>
+      </ul>
+    </div>
+
+    <!-- PREMIUM SPIRITS -->
+    <div class="menu-category">
+      <h3>Premium Spirits</h3>
+      <ul>
+        <li>Grey Goose</li>
+        <li>Belvedere</li>
+        <li>Whitley Neill — Raspberry / Rhubarb & Ginger</li>
+        <li>Hendrick's</li>
+        <li>Bombay Sapphire</li>
+        <li>Tanqueray</li>
+        <li>Johnnie Walker Black Label</li>
+        <li>Smokey Monkey</li>
+        <li>Glenfiddich 12 Year Old</li>
+        <li>The Kraken Black Spiced</li>
+        <li>Havana Club 7 Años</li>
+        <li>Appleton Estate</li>
+      </ul>
+    </div>
+
+    <div class="bar-note">
+      🛡️ Please drink responsibly. The venue operates Challenge 25, so ID may be required.
+    </div>
   </div>
 </section>
 
